@@ -44,6 +44,7 @@ class _WaiterDashboardScreenState extends State<WaiterDashboardScreen> {
     toPay.clear();
     sumOfTp = 0;
     Navigator.pop(context);
+    _printInvoice(context);
     setState(() {});
     print("Payment Success");
     // Do something when payment succeeds
@@ -478,12 +479,11 @@ class _WaiterDashboardScreenState extends State<WaiterDashboardScreen> {
           pw.Text('Date: ${DateTime.now().toLocal()}'),
           pw.SizedBox(height: 20),
           pw.Row(children: [
-          pw.Text('Items:',
-              style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-              pw.SizedBox(width: 200),
-              pw.Text('quantity:',
-              style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-
+            pw.Text('Items:',
+                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+            pw.SizedBox(width: 200),
+            pw.Text('quantity:',
+                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
           ]),
           pw.SizedBox(height: 10),
           _buildInvoiceItems(),
@@ -506,7 +506,6 @@ class _WaiterDashboardScreenState extends State<WaiterDashboardScreen> {
             pw.Text('Quantity: ${tpQuntity[i]}'),
             pw.Text('Price: Rs ${tpPriceOut[i]}'),
           ],
-          
         ),
       );
     }

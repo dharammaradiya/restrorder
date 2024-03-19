@@ -247,64 +247,68 @@ class _KitchenDashboardScreenState extends State<KitchenDashboardScreen> {
               });
             }
           }
-          return SingleChildScrollView(
-              child: Column(children: [
-            if (i == 5)
-              ListView.builder(
-                physics: BouncingScrollPhysics(),
-                itemCount: concatingMap.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20.0, left: 20, right: 20),
-                    child: Container(
-                      height: 70,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 18.0, top: 6, bottom: 6, right: 18),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: CircleAvatar(
-                                backgroundColor:
-                                    const Color.fromARGB(255, 220, 218, 215),
-                                radius: 16,
-                                child: Text(
-                                  concatingMap.values
-                                      .elementAt(index)
-                                      .toString(),
-                                  style: GoogleFonts.roboto(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 18.0),
-                              child: Text(
-                                concatingMap.keys.elementAt(index).toString(),
-                                style: GoogleFonts.roboto(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-          ]));
+          return Column(
+            children: [
+              if (i == 5) CustomListviewBuilder(),
+            ],
+          );
+          // return Column(children: [
+          //   // if (i == 5)
+          //     ListView.builder(
+          //       physics: BouncingScrollPhysics(),
+          //       itemCount: concatingMap.length,
+          //       itemBuilder: (context, index) {
+          //         return Padding(
+          //           padding:
+          //               const EdgeInsets.only(top: 20.0, left: 20, right: 20),
+          //           child: Container(
+          //             height: 70,
+          //             width: 300,
+          //             decoration: BoxDecoration(
+          //               borderRadius: BorderRadius.circular(20),
+          //               color: Colors.white,
+          //             ),
+          //             child: Padding(
+          //               padding: const EdgeInsets.only(
+          //                   left: 18.0, top: 6, bottom: 6, right: 18),
+          //               child: Row(
+          //                 mainAxisAlignment: MainAxisAlignment.start,
+          //                 children: [
+          //                   Padding(
+          //                     padding: const EdgeInsets.only(left: 12.0),
+          //                     child: CircleAvatar(
+          //                       backgroundColor:
+          //                           const Color.fromARGB(255, 220, 218, 215),
+          //                       radius: 16,
+          //                       child: Text(
+          //                         concatingMap.values
+          //                             .elementAt(index)
+          //                             .toString(),
+          //                         style: GoogleFonts.roboto(
+          //                             color: Colors.black,
+          //                             fontSize: 20,
+          //                             fontWeight: FontWeight.bold),
+          //                       ),
+          //                     ),
+          //                   ),
+          //                   Padding(
+          //                     padding: const EdgeInsets.only(left: 18.0),
+          //                     child: Text(
+          //                       concatingMap.keys.elementAt(index).toString(),
+          //                       style: GoogleFonts.roboto(
+          //                           color: Colors.black,
+          //                           fontSize: 18,
+          //                           fontWeight: FontWeight.bold),
+          //                     ),
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //         );
+          //       },
+          //     ),
+          // ]);
         });
   }
 

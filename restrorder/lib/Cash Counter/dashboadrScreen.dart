@@ -681,7 +681,7 @@ class _PaymentStatusState extends State<PaymentStatus> {
                                             falseDocumentIds[index],
                                             style: GoogleFonts.roboto(
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 12,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
