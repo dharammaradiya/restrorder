@@ -466,33 +466,49 @@ class _WaiterDashboardScreenState extends State<WaiterDashboardScreen> {
     return pdf.save();
   }
 
-  pw.Widget _buildInvoice() {
-    // Customize this method to build your invoice content
-    return pw.Container(
-      child: pw.Column(
-        crossAxisAlignment: pw.CrossAxisAlignment.start,
-        children: [
-          pw.Text('Restrorder', style: pw.TextStyle(fontSize: 20)),
-          pw.SizedBox(height: 10),
-          pw.Text('Invoice Number: ${docname1}'),
-          pw.SizedBox(height: 10),
-          pw.Text('Date: ${DateTime.now().toLocal()}'),
-          pw.SizedBox(height: 20),
-          pw.Row(children: [
-            pw.Text('Items:',
-                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-            pw.SizedBox(width: 200),
-            pw.Text('quantity:',
-                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-          ]),
-          pw.SizedBox(height: 10),
-          _buildInvoiceItems(),
-          pw.SizedBox(height: 20),
-          pw.Text('Total:  Rs  ${sumOfTp}'),
-        ],
-      ),
-    );
-  }
+pw.Widget _buildInvoice() {
+  // GST rates
+  double sgstRate = 2.5; // SGST rate
+  double cgstRate = 2.5; // CGST rate
+
+  // Calculate total tax amount
+  double totalTax = sumOfTp * (sgstRate + cgstRate) / 100;
+
+  // Customize this method to build your invoice content
+  return pw.Container(
+    child: pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.start,
+      children: [
+        pw.Text('Restrorder', style: pw.TextStyle(fontSize: 20)),
+        pw.SizedBox(height: 10),
+        pw.Text('Invoice Number: ${docname1}'),
+        pw.SizedBox(height: 10),
+        pw.Text('Date: ${DateTime.now().toLocal()}'),
+        pw.SizedBox(height: 20),
+        pw.Row(children: [
+          pw.Text('Items:',
+              style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+          pw.SizedBox(width: 200),
+          pw.Text('Quantity:',
+              style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+        ]),
+        pw.SizedBox(height: 10),
+        _buildInvoiceItems(),
+        pw.SizedBox(height: 20),
+        pw.Row(
+          mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+          children: [
+            pw.Text('SGST (${sgstRate.toString()}%):  Rs ${(sumOfTp * sgstRate / 100).toString()}'),
+            pw.Text('CGST (${cgstRate.toString()}%):  Rs ${(sumOfTp * cgstRate / 100).toString()}'),
+          ],
+        ),
+        pw.SizedBox(height: 10),
+        pw.Text('Total (excluding GST):  Rs ${sumOfTp.toString()}'),
+        pw.Text('Total (including GST):  Rs ${(sumOfTp + totalTax).toString()}'),
+      ],
+    ),
+  );
+}
 
   pw.Widget _buildInvoiceItems() {
     List<pw.Widget> items = [];

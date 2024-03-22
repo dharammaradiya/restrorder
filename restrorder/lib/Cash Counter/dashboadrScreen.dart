@@ -8,7 +8,6 @@ import 'package:restrorder/Waiter/waiterData.dart';
 
 Map completedOrders = {};
 Map CompleteData = {};
-
 String tableOut = '';
 Iterable data = {};
 List docid = [];

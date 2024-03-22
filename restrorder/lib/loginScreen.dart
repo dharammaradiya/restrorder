@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
     void login() async {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => WaiterDashboardScreen(),
+          builder: (context) => const WaiterDashboardScreen(),
         ),
       );
     }
@@ -41,13 +41,15 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-
                 GestureDetector(
                   onTap: () {
                     print(Consts.concatMap);
                   },
-                  child: const Image(
-                    image: AssetImage('Assets/Images/logoblack.png'),
+                  child: const SizedBox(
+                    height: 200,
+                    child: Image(
+                      image: AssetImage('Assets/Images/logoblack.png'),
+                    ),
                   ),
                 ),
                 Padding(

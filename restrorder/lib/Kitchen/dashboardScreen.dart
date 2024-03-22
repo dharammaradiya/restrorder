@@ -79,7 +79,7 @@ class _KitchenDashboardScreenState extends State<KitchenDashboardScreen> {
         return Padding(
           padding: const EdgeInsets.only(top: 12.0, left: 12, right: 12),
           child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: docIds.length,
             itemBuilder: (context, index) {
@@ -249,7 +249,7 @@ class _KitchenDashboardScreenState extends State<KitchenDashboardScreen> {
           }
           return Column(
             children: [
-              if (i == 5) CustomListviewBuilder(),
+              if (i == 5) const CustomListviewBuilder(),
             ],
           );
           // return Column(children: [
@@ -348,7 +348,7 @@ class _KitchenDashboardScreenState extends State<KitchenDashboardScreen> {
               IconButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => CashCounterDashboardScreen(),
+                    builder: (context) => const CashCounterDashboardScreen(),
                   ));
                 },
                 icon: const Icon(
@@ -371,7 +371,7 @@ class _KitchenDashboardScreenState extends State<KitchenDashboardScreen> {
                 child: Container(
                   height: double.infinity,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 219, 219, 245),
+                      color: const Color.fromARGB(255, 219, 219, 245),
                       borderRadius: BorderRadius.circular(20)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -496,7 +496,7 @@ class _CustomListviewBuilderState extends State<CustomListviewBuilder> {
     return SizedBox(
       height: size.height * 0.59,
       child: ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: concatingMap.length,
         itemBuilder: (context, index) {
           return Padding(
