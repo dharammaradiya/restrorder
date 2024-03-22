@@ -31,6 +31,36 @@ class _LoginScreenState extends State<LoginScreen> {
           builder: (context) => const WaiterDashboardScreen(),
         ),
       );
+      // await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //     email: email.text, password: password.text);
+
+      // try {
+      //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //       email: email.text, password: password.text);
+      //   final user = FirebaseAuth.instance.currentUser?.uid;
+      //   if (user == 'SutD9MbBtyXkke3so5r3jmqwGtG3') {
+      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //       builder: (context) => const CashCounterDashboardScreen(),
+      //     ));
+      //   } else if (user == 'HYoicTAuTSMnuHfnZo48HDF06Gc2') {
+      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //       builder: (context) => const KitchenDashboardScreen(),
+      //     ));
+      //   } else if (user == 'QQYkJp12blXNxO0cNOLDLH6y5CI2') {
+      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
+      //       builder: (context) => const TableSelectionScreen(),
+      //     ));
+      //   }
+      // } catch (e) {
+      //   Fluttertoast.showToast(
+      //     msg: "Please Enter Valid Login Credential",
+      //     backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+      //     fontSize: 16,
+      //     gravity: ToastGravity.BOTTOM,
+      //     textColor: Colors.black,
+      //     toastLength: Toast.LENGTH_LONG,
+      //   );
+      // }
     }
 
     return Scaffold(
