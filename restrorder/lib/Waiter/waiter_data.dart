@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 List<String> Catagory = [
@@ -11,8 +13,8 @@ List<String> Catagory = [
   "Mysore Dosa (Gravy)",
   "Paper/Sada Dosa",
   "Noodles",
-  "Manchurian",
   "Rice",
+  "Manchurian",
   "Fancy Dosa",
   "French Fries",
   "Pizza",
@@ -20,33 +22,6 @@ List<String> Catagory = [
   "Extra Dip"
 ];
 var table = ['Table 1', 'Table 2', 'Table 3', 'Table 4', 'Table 5', 'Table 6'];
-
-// Map Menu = {
-//   'Starter': [
-//     "Soup",
-//     "Papad",
-//     "Salad",
-//     "Water",
-//   ],
-//   'Pavbhaji': [
-//     "Oil Pavbhaji",
-//     "Butter Pavbhaji",
-//     "Cheese Pavbhaji",
-//     "Panner Pavhaji",
-//   ],
-//   'Dosa': [
-//     "Paper Dosa",
-//     "Masala Dosa",
-//     "Maysore Dosa",
-//     "Cheese Paper Dosa",
-//     "Panner Masala Dosa",
-//   ]
-// };
-// List<String> All = Menu['Starter'] + Menu['Pavbhaji'] + Menu['Dosa'];
-
-// List<String> starter = Menu['Starter'];
-// List<String> pavbhaji = Menu['Pavbhaji'];
-// List<String> dosa = Menu['Dosa'];
 
 List<Color> Catagarycolor = [
   const Color.fromARGB(255, 75, 75, 211),
@@ -82,12 +57,12 @@ class Consts {
 int selectedIndex = 0;
 
 var menu = [
-  "Starter",
-  "Main Course",
-  "Salad",
-  "Cold-drink",
-  "Ice-cream",
-  "Pizza",
+  "Table 1",
+  "Table 2",
+  "Table 3",
+  "Table 4",
+  "Table 5",
+  "Table 6",
 ];
 var dropdownvalue = "";
 
@@ -102,9 +77,9 @@ List color = [
   const Color.fromARGB(255, 51, 51, 50),
 ];
 
-
-
 class MyTextField extends StatefulWidget {
+  const MyTextField({super.key});
+
   @override
   _MyTextFieldState createState() => _MyTextFieldState();
 }

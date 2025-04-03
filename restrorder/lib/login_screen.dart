@@ -1,9 +1,13 @@
-// ignore: file_names
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:restrorder/Waiter/dashboardScreen.dart';
-import 'package:restrorder/Waiter/waiterData.dart';
+import 'package:restrorder/Cash%20Counter/dashboadr_screen.dart';
+import 'package:restrorder/Kitchen/dashboard_screen.dart';
+import 'package:restrorder/Waiter/dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -14,10 +18,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    // print(Consts.concatMap);
   }
 
   @override
@@ -26,41 +27,75 @@ class _LoginScreenState extends State<LoginScreen> {
     final TextEditingController password = TextEditingController();
 
     void login() async {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const WaiterDashboardScreen(),
-        ),
-      );
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => const WaiterDashboardScreen(),
+      //   ),
+      // );
       // await FirebaseAuth.instance.signInWithEmailAndPassword(
       //     email: email.text, password: password.text);
 
-      // try {
-      //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-      //       email: email.text, password: password.text);
-      //   final user = FirebaseAuth.instance.currentUser?.uid;
-      //   if (user == 'SutD9MbBtyXkke3so5r3jmqwGtG3') {
-      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //       builder: (context) => const CashCounterDashboardScreen(),
-      //     ));
-      //   } else if (user == 'HYoicTAuTSMnuHfnZo48HDF06Gc2') {
-      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //       builder: (context) => const KitchenDashboardScreen(),
-      //     ));
-      //   } else if (user == 'QQYkJp12blXNxO0cNOLDLH6y5CI2') {
-      //     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //       builder: (context) => const TableSelectionScreen(),
-      //     ));
-      //   }
-      // } catch (e) {
-      //   Fluttertoast.showToast(
-      //     msg: "Please Enter Valid Login Credential",
-      //     backgroundColor: const Color.fromARGB(255, 234, 234, 249),
-      //     fontSize: 16,
-      //     gravity: ToastGravity.BOTTOM,
-      //     textColor: Colors.black,
-      //     toastLength: Toast.LENGTH_LONG,
-      //   );
-      // }
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: email.text, password: password.text);
+        final user = FirebaseAuth.instance.currentUser?.uid;
+        if (user == 'RanOq51R8aNmi8mIbQwYS8puqqW2') {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const CashCounterDashboardScreen(),
+          ));
+          Fluttertoast.showToast(
+            msg: "Login Success!",
+            backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+            fontSize: 16,
+            gravity: ToastGravity.BOTTOM,
+            textColor: Colors.black,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        } else if (user == '97dpNnS4rnWVajRParsw3l7Cy0S2') {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const KitchenDashboardScreen(),
+          ));
+          Fluttertoast.showToast(
+            msg: "Login Success!",
+            backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+            fontSize: 16,
+            gravity: ToastGravity.BOTTOM,
+            textColor: Colors.black,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        } else if (user == 'WzFn0MF7bpMwT4QdpYXrJKl0aBh1') {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const WaiterDashboardScreen(),
+          ));
+          Fluttertoast.showToast(
+            msg: "Login Success!",
+            backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+            fontSize: 16,
+            gravity: ToastGravity.BOTTOM,
+            textColor: Colors.black,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        } else {
+          Navigator.of(context).pop();
+          Fluttertoast.showToast(
+            msg: "Please Enter Valid Login Credential",
+            backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+            fontSize: 16,
+            gravity: ToastGravity.CENTER,
+            textColor: Colors.black,
+            toastLength: Toast.LENGTH_LONG,
+          );
+        }
+      } catch (e) {
+        Fluttertoast.showToast(
+          msg: "Login Failed!!",
+          backgroundColor: const Color.fromARGB(255, 234, 234, 249),
+          fontSize: 16,
+          gravity: ToastGravity.BOTTOM,
+          textColor: Colors.black,
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
     }
 
     return Scaffold(
@@ -72,9 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
-                  onTap: () {
-                    print(Consts.concatMap);
-                  },
+                  onTap: () {},
                   child: const SizedBox(
                     height: 200,
                     child: Image(
@@ -98,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       fillColor: const Color.fromARGB(255, 242, 242, 242),
                       filled: true,
-                      hintText: "Your Email",
+                      hintText: "Enter your email",
                       hintStyle: const TextStyle(fontWeight: FontWeight.w600),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
@@ -143,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         fillColor: const Color.fromARGB(255, 242, 242, 242),
                         filled: true,
-                        hintText: "Your Password",
+                        hintText: "Enter password",
                         hintStyle: const TextStyle(fontWeight: FontWeight.w600),
                         focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -170,10 +203,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       const EdgeInsets.only(top: 28.0, right: 150, left: 150),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                        backgroundColor: const Color.fromARGB(255, 21, 41, 74)),
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      backgroundColor: Color.fromARGB(255, 255, 81, 0),
+                    ),
                     onPressed: () {
                       login();
                     },
@@ -184,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Get Started  ",
+                            "Login ",
                             style: GoogleFonts.roboto(
                                 textStyle: const TextStyle(
                                     fontSize: 20,
